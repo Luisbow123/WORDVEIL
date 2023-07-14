@@ -6,13 +6,13 @@ let blockedWordsCount;
       [Assuming (value = "string" checks for the same word using case sensitive stuff i think)] /*/
 document.getElementById("getWord").onclick = function(){
 
-//If newWord stays true throughout function, the function ends (if false, duplicate detected/while loop exited)
+//If newWord stays true throughout function, the function runs (if false, duplicate detected/while loop exited)
 let newWord = true;
 while (newWord == true){
 
-  for (n = 0; n++; n<=blockedWords.length){
+  for (let n = 0; n<=blockedWords.length; n++){
 
-    if (document.getElementById("userInput").value.equals == blockedWords[n]) {
+    if (document.getElementById("userInput").value == blockedWords[n]) {
 
       alert ("Duplicate word detected");  //User is alerted of duplicate word (case sensitive i think)
       n = blockedWords.length + 2;  //I make n > blockedWords.length to jump out of forLoop
@@ -30,11 +30,13 @@ while (newWord == true){
     newWord = false;
 
   }
-}
-
  }
 
-} //forLoop loops here
+}//forLoop loops here
+}
+
+alert(blockedWords.values());
+
 }
 
 document.getElementById("getWord").onclick = function(){
