@@ -1,12 +1,12 @@
 
-// little console checkers to see that i executing something at least on the webpage
+// Little console checkers to see that i am executing something at least on the webpage
 console.log("I RAN SCRIPT");
 
 console.log("2 times for fun");
 
 
-// array that gonna be used to store the words
-let block = ["the", "cat" ];
+// Array that will be used to store the blocked words
+let blockedWords = ["the", "cat" ];
 
 // The fuction that replaces the words on screen based on the block array filled with words
 // function replaceWord(wordArray){
