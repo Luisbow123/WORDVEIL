@@ -1,9 +1,9 @@
 {
     "manifest_version": 3,
-    "name": "Test2",
+    "name": "WordVeil",
     "version": "0.2",
-    "description": "PLS WORK GODDAMIT",
-    
+    "description": "Customizable word-blocking extension that blocks words tailored to your own user experience ",
+
     "permissions": [
         "activeTab",
         "storage",
@@ -17,6 +17,21 @@
       "default_icon": "hiPNG.png"
     },
 
+    "icons" : {
+
+    "16" : " ",
+    "32" : " ",
+    "48" : " ",
+    "128" : " "
+
+    },
+
+    "background" : {
+
+
+
+    },
+
     "content_scripts": [
         {
             "matches": [
@@ -28,4 +43,3 @@
         }
     ]
 }
-  

@@ -1,46 +1,44 @@
 //Array for user's words to block
-let blockedWords = [];
+let arrayBlockedWords = [];
 let blockedWordsCount;
 
-/*/ This logic will check if their input is a duplicate word, then add it, if not, ignore it:
-      [Assuming (value = "string" checks for the same word using case sensitive stuff i think)] /*/
-document.getElementById("getWord").onclick = function(){
+//Accessing the elements:
+const buttonClick = document.getElementById('getWord');
+const userInput = document.getElementById('userInput');
+
+//Logic to make an array of .trim and .split(',') user inputs
+let newArrayBlockedWords = (userInput.trim()).split(',');
+
+//This method gets rid of the dupes:
+buttonClick.onclick = function(){
 
 //If newWord stays true throughout function, the function runs (if false, duplicate detected/while loop exited)
 let newWord = true;
 while (newWord == true){
 
-  for (let n = 0; n<=blockedWords.length; n++){
+//2D array that takes every element (0 --> length) and compares it to entire array one by one for dupes
+  for (let n = 0; n<=newArrayBlockedWords.length; n++){
 
-    if (document.getElementById("userInput").value == blockedWords[n]) {
+      for (let p =0; p<=newArrayBlockedWords.length; p++){
 
-      alert ("Duplicate word detected");  //User is alerted of duplicate word (case sensitive i think)
-      n = blockedWords.length + 2;  //I make n > blockedWords.length to jump out of forLoop
-      newWord = false;
+        if (p!=n){  //This runs only when the same element doesn't check itself
 
+          if (newArrayBlockedWords[n].localeCompare(newArrayBlockedWords[p], { sensitivity: 'base' }) == true ){    //Checks if value is duplicated here (Treats upper/lowercase same)
 
- }  else {
+              alert("Duplicate word detected, please fix this!");   //Alerts user of dupe word then exits while loop
+              newWord = false;
 
-  if (n == blockedWords.length){
+          }
 
+        }
 
-    blockedWords[blockedWordsCount] = document.getElementById("userInput").value;
-    blockedWordsCount++;
-
-    newWord = false;
+      }
 
   }
- }
 
-}//forLoop loops here
-}
-
-alert(blockedWords.values());
+  newArrayBlockedWords = arrayBlockedWords;   // Entire word list separated by (',') added to array of blocked words successfully
+  newWord = false;
 
 }
-
-document.getElementById("getWord").onclick = function(){
-  let wordInputed = document.getElementById("userInput").value;
-  console.log("Hello",wordInputed);
 }
 
