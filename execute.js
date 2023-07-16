@@ -1,24 +1,35 @@
 
-// Little console checkers to see that i am executing something at least on the webpage
+// little console checkers to see that i executing something at least on the webpage
 console.log("I RAN SCRIPT");
 
 console.log("2 times for fun");
 
 
-// Array that will be used to store the blocked words
-let blockedWords = ["the", "cat" ];
+// array that gonna be used to store the words
+let block = ["the", "cat" ];
 
 
 // This function is the one that replaces the words right now it is case sensetive right now 
 // and doesn't work on capitalization or words that are plural
 function replaceWord(wordArray){
-    for(int = 0; int < wordArray.length; int += 1){
+    for(int = 0; int <= wordArray.length; int += 1){
         let elements = document.querySelectorAll("p", "h1", "h2", "h3", "h4", "h5", "h6")
         elements.forEach(element => {
+            if(element.TEXT_NODE){
             element.innerText = element.innerText.split(wordArray[int] + " ").join("|@@@@@@| ");
+            element.innerText = element.innerText.split(wordArray[int] + "s" + " ").join("|@@@@@@| ");
+            element.innerText = element.innerText.split(wordArray[int][0].toUpperCase() + wordArray[int].slice(1)+ " ").join("|@@@@@@| ");
+            }
         })
     }
 };
+
+function captialize(wordString){
+    wordString = wordString[0];
+}
+
+
+
 
 // calling that function once
 replaceWord(block);
