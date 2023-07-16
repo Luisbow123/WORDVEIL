@@ -1,12 +1,45 @@
 {
-  "manifest_version": 3,
-  "name": "TestRUN",
-  "version": "1.1",
-  "description": "PLS WORK GODDAMIT",
-  "permissions": ["activeTab", "scripting"],
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "TestRun",
-    "default_icon": "hiPNG.png"
-  }
+    "manifest_version": 3,
+    "name": "WordVeil",
+    "version": "0.2",
+    "description": "Customizable word-blocking extension that blocks words tailored to your own user experience ",
+
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "scripting"
+    ],
+
+    "action": {
+      "default_popup": "popup.html",
+      "default_title": "TestRun",
+      "default_icon": "hiPNG.png"
+    },
+
+    "icons" : {
+
+    "16" : " ",
+    "32" : " ",
+    "48" : " ",
+    "128" : " "
+
+    },
+
+    "background" : {
+
+
+
+    },
+
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "/execute.js"
+            ]
+        }
+    ]
 }

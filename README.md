@@ -1,3 +1,3 @@
 # WORDVEIL
 WORD VEIL
-HELLO THIS IS READ ME!
+this is ver 2 remade by me its simpler and more easy to read still need to add a listener for the input and then freshen up the interface
