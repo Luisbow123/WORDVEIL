@@ -1,44 +1,55 @@
-//Array for user's words to block
-let arrayBlockedWords = [];
-let blockedWordsCount;
 
-//Accessing the elements:
-const buttonClick = document.getElementById('getWord');
-const userInput = document.getElementById('userInput');
 
-//Logic to make an array of .trim and .split(',') user inputs
-let newArrayBlockedWords = (userInput.trim()).split(',');
+// seeing that i can access the data.js global variables from here
+console.log(window.blockedWords);
 
-//This method gets rid of the dupes:
-buttonClick.onclick = function(){
+const addWord = document.querySelector("#getWord");
+// word that was just inputed if any
+let currWord = "";
+// list item that will be inputed into our word list popup
+// let newWord = document.createElement("li");
 
-//If newWord stays true throughout function, the function runs (if false, duplicate detected/while loop exited)
-let newWord = true;
-while (newWord == true){
+// should make the hidden div edditable
+document.querySelector("#wordList").contentEditable = true;
 
-//2D array that takes every element (0 --> length) and compares it to entire array one by one for dupes
-  for (let n = 0; n<=newArrayBlockedWords.length; n++){
+const refreshButton = document.querySelector("#refreshPage");
+refreshButton.addEventListener("click", () => {window.location.ta;})
 
-      for (let p =0; p<=newArrayBlockedWords.length; p++){
+// this is the function that defines what the EnterWord button does on "click"
+addWord.addEventListener("click", () => {
+  currWord = window.prompt("Enter word to be blocked");
+  window.blockedWords.push(currWord);
 
-        if (p!=n){  //This runs only when the same element doesn't check itself
+  console.log(window.blockedWords);
 
-          if (newArrayBlockedWords[n].localeCompare(newArrayBlockedWords[p], { sensitivity: 'base' }) == true ){    //Checks if value is duplicated here (Treats upper/lowercase same)
-
-              alert("Duplicate word detected, please fix this!");   //Alerts user of dupe word then exits while loop
-              newWord = false;
-
-          }
-
-        }
-
-      }
-
+  let newWord = document.createElement("li");
+  newWord.textContent = currWord;
+  console.log(newWord);
+  document.querySelector("#blockedWords").append(newWord);
   }
+);
 
-  newArrayBlockedWords = arrayBlockedWords;   // Entire word list separated by (',') added to array of blocked words successfully
-  newWord = false;
 
+// this grabs the second button the open word list button and opens a html on "click"
+const seeList = document.querySelector("#listPopup");
+seeList.addEventListener("click", () => {openPopup(sectionID)});
+
+// adding the ID for the words being blocked list to use in the openPopup function below
+let sectionID = "wordList"
+
+
+// fuction that opens a popup of size 500/300 using the ID of the html element as an argument
+function openPopup(sectionId) {
+  // Get the section of HTML that you want to open as a popup.
+  let section = document.getElementById(sectionId);
+
+  // Create a new window with the specified attributes.
+  let popupWindow = window.open('', 'popup', 'width=500,height=300');
+
+  // Insert the HTML section into the popup window.
+  popupWindow.document.body.innerHTML = section.innerHTML;
 }
-}
+
+
+
 

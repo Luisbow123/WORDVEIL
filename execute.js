@@ -5,8 +5,8 @@ console.log("I RAN SCRIPT");
 console.log("2 times for fun");
 
 
-// array that gonna be used to store the words
-let block = ["the", "cat" ];
+// // array that gonna be used to store the words
+let block = window.blockedWords;
 
 
 // This function is the one that replaces the words right now it is case sensetive right now 
@@ -16,11 +16,12 @@ function replaceWord(wordArray){
         let elements = document.querySelectorAll("p", "h1", "h2", "h3", "h4", "h5", "h6")
         elements.forEach(element => {
             if(element.TEXT_NODE){
-            element.innerText = element.innerText.split(wordArray[int] + " ").join("|@@@@@@| ");
-            element.innerText = element.innerText.split(wordArray[int] + "s" + " ").join("|@@@@@@| ");
-            element.innerText = element.innerText.split(wordArray[int][0].toUpperCase() + wordArray[int].slice(1)+ " ").join("|@@@@@@| ");
+            element.textContent = element.textContent.split(wordArray[int] + " ").join("|@@@@@@| ");
+            element.textContent = element.textContent.split(wordArray[int] + "s" + " ").join("|@@@@@@| ");
+            element.textContent = element.textContent.split(wordArray[int].charAt(0).toUpperCase() + wordArray[int].slice(1)+ " ").join("|@@@@@@| ");
             }
         })
+        
     }
 };
 

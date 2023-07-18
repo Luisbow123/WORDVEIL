@@ -17,28 +17,15 @@
       "default_icon": "hiPNG.png"
     },
 
-    "icons" : {
-
-    "16" : " ",
-    "32" : " ",
-    "48" : " ",
-    "128" : " "
-
-    },
-
-    "background" : {
-
-
-
-    },
-
     "content_scripts": [
         {
             "matches": [
                 "<all_urls>"
             ],
             "js": [
+                "/data.js",
                 "/execute.js"
+               
             ]
         }
     ]

@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <h1 id="Title"> WELCOME TO WordVeil! </h1>
+    <body>
+        <h1 id="Title"> WELCOME TO WordVeil! </h1>
 
-    <label> What words do you want to block?</label><br>
-    <input type = "text" id = "userInput"><br>
-    <button type = "button" id = "getWord">Submit</button>
+        <label> What words do you want to block?</label><br>
+        
+        <button id = "getWord">Enter more words here</button>
 
-    <script src="popup.js"></script>
-</body>
+
+            
+        <button id = "listPopup">See list of words here</button>
+        <br>
+        <br>
+        <button id = "refreshPage" >
+        <img src ="refreshICON.png" height="50" width="50">
+        </button>
+
+        <div style="display: block" id="wordList">
+            <h1>List of all words being blocked</h1>
+
+            <ul id = "blockedWords">
+                <li>firstWord</li>
+            </ul>
+
+        </div>
+        
+        <script type = "text/javascript" src = "data.js"></script>
+        <script type = "text/javascript" src = "popup.js"></script>
+    </body>
 </html>
