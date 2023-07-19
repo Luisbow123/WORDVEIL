@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="style.css">
     <body>
-        <h1 id="Title"> WELCOME TO WordVeil! </h1>
+        <h1 id="Title"> Welcome To WordVeil! </h1>
 
-        <label> What words do you want to block?</label><br>
+        <label> What words do you want to block?</label>
+        <br>
+        <br>
         
-        <button id = "getWord">Enter more words here</button>
-
-
-            
-        <button id = "listPopup">See list of words here</button>
+        <button id = "getWord", style=" border-radius: 20px; background-color: rgb(113, 181, 245); border-color:rgb(113, 181, 245);color: black;">Enter more words here</button>
+        <br>
+        <br>
+        <button id = "listPopup", style= "border-radius: 20px; background-color: rgb(113, 181, 245); border-color:rgb(113, 181, 245);color: black;"> See list of words here      </button>
         <br>
         <br>
         <button id = "refreshPage" >
-        <img src ="refreshICON.png" height="50" width="50">
+        <img src ="refreshICON.png" height="30" width="30">
         </button>
+        <br>
+        <br>
 
         <div style="display: block" id="wordList">
-            <h1>List of all words being blocked</h1>
+            <label>List of all words being blocked</label>
 
             <ul id = "blockedWords">
                 <li>firstWord</li>
@@ -27,5 +31,7 @@
         
         <script type = "text/javascript" src = "data.js"></script>
         <script type = "text/javascript" src = "popup.js"></script>
+        
     </body>
 </html>
+
