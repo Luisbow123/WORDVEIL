@@ -8,33 +8,28 @@ console.log("2 times for fun");
 // // array that gonna be used to store the words
 let block = window.blockedWords;
 
+let blockedWords2 = ["cat","the","lol","hi"];
 
-// This function is the one that replaces the words right now it is case sensetive right now 
-// and doesn't work on capitalization or words that are plural
-function replaceWord(wordArray){
-    for(int = 0; int <= wordArray.length; int += 1){
-        let elements = document.querySelectorAll("p", "h1", "h2", "h3", "h4", "h5", "h6")
-        elements.forEach(element => {
-            if(element.TEXT_NODE){
-            element.textContent = element.textContent.split(wordArray[int] + " ").join("|@@@@@@| ");
-            element.textContent = element.textContent.split(wordArray[int] + "s" + " ").join("|@@@@@@| ");
-            element.textContent = element.textContent.split(wordArray[int].charAt(0).toUpperCase() + wordArray[int].slice(1)+ " ").join("|@@@@@@| ");
-            }
-        })
-        
-    }
-};
 
-function captialize(wordString){
-    wordString = wordString[0];
+  // Get all text nodes on the webpage
+  let allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+
+  let replacementWord = "|@@@@@@|";
+
+  // Traverse through all text nodes per element in array:
+for (let i = 0; i <=blockedWords2.length; i++){
+
+  while (allTextNodes.nextNode()) {
+    let textNode = allTextNodes.currentNode;
+    let regex = new RegExp('\\b' + blockedWords2[i] + '\\b', 'gi'); // Match whole word, case-insensitive
+    let replacedText = textNode.textContent.replace(regex, replacementWord);
+    textNode.textContent = replacedText;
+
+  }
+
+    allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+
 }
-
-
-
-
-// calling that function once
-replaceWord(block);
-
 
 
 // other ways to do it:
@@ -43,7 +38,7 @@ replaceWord(block);
 // document.body.innerHTML = document.body.innerHTML.replace(/the /gi, "|@@@@@@|");
 
 // The fuction that replaces the words on screen based on the block array filled with words
-// This one works but it breaks some pages like youtube cause innerHTML impacts the code of the 
+// This one works but it breaks some pages like youtube cause innerHTML impacts the code of the
 // html webpage itself as well as the text.
 // function replaceWord(wordArray){
 //     for(int = 0; int < wordArray.length; int += 1){

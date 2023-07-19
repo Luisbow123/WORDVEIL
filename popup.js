@@ -12,8 +12,14 @@ let currWord = "";
 // should make the hidden div edditable
 document.querySelector("#wordList").contentEditable = true;
 
+function refreshButtonFunc (){
+
+chrome.tabs.reload();
+
+}
+
 const refreshButton = document.querySelector("#refreshPage");
-refreshButton.addEventListener("click", () => {window.location.ta;})
+refreshButton.addEventListener("click", refreshButtonFunc);
 
 // this is the function that defines what the EnterWord button does on "click"
 addWord.addEventListener("click", () => {

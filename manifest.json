@@ -8,7 +8,8 @@
         "activeTab",
         "storage",
         "tabs",
-        "scripting"
+        "scripting",
+        "tabs"
     ],
 
     "action": {
@@ -25,7 +26,7 @@
             "js": [
                 "/data.js",
                 "/execute.js"
-               
+
             ]
         }
     ]
