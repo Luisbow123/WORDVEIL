@@ -27,13 +27,13 @@ textNodes.forEach(function(node) {
         var colorSpan = document.createElement('span');
         colorSpan.style.color = getRandomRGBColor();
         colorSpan.textContent = word;
-    
+
         for(let int = 0; int < block.length; int++){
             if(word == block[int]){
                 colorSpan.textContent = word.split(block[int]).join("|@@@@@@@@|");
                 newNodes.push(colorSpan);
             }
-            
+
         };
 
         newNodes.push(colorSpan);
