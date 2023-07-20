@@ -9,8 +9,14 @@ HOW TO SETUP WordViel:
 ![image](https://github.com/Luisbow123/WORDVEIL/assets/55300466/f340f35c-bd96-4b6b-879a-93bef54f55aa)
 
 
+
+
+
 3.Click Load unpacked
 ![image](https://github.com/Luisbow123/WORDVEIL/assets/55300466/98115757-8e5d-46a2-a8f4-5533d5e52ac6)
+
+
+
 
 
 4. In pop-up window, select the extension folder > click Select Folder
