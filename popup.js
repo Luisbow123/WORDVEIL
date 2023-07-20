@@ -1,61 +1,55 @@
 
 
-// seeing that i can access the data.js global variables from here
-console.log(window.blockedWords);
 
-const addWord = document.querySelector("#getWord");
+const addButton = document.querySelector("#getButton");
+
 // word that was just inputed if any
 let currWord = "";
-// list item that will be inputed into our word list popup
-// let newWord = document.createElement("li");
-
-// should make the hidden div edditable
-document.querySelector("#wordList").contentEditable = true;
-
-function refreshButtonFunc (){
-
-chrome.tabs.reload();
-
-}
-
-const refreshButton = document.querySelector("#refreshPage");
-refreshButton.addEventListener("click", refreshButtonFunc);
 
 // this is the function that defines what the EnterWord button does on "click"
-addWord.addEventListener("click", () => {
+addButton.addEventListener("click", () => {
   currWord = window.prompt("Enter word to be blocked");
-  window.blockedWords.push(currWord);
+  
+  if(!currWord.includes(" ")){
+    addWord(currWord);
+  }else{
+    window.alert("Must no include spaces/ needs to be individual word");
+  }
 
-  console.log(window.blockedWords);
-
-  let newWord = document.createElement("li");
-  newWord.textContent = currWord;
-  console.log(newWord);
-  document.querySelector("#blockedWords").append(newWord);
+  // let newWord = document.createElement("li");
+  // newWord.textContent = currWord;
+  // console.log(newWord);
+  // document.querySelector("#blockedWords").append(newWord);
   }
 );
 
+// should make the hidden div edditable
+// document.querySelector("#wordList").contentEditable = true;
+
+// function that refreshes the page
+function refreshButtonFunc (){
+  chrome.tabs.reload();
+}
+
+// getting the refresh button and adding an eventlistener to use the refresh function
+const refreshButton = document.querySelector("#refreshPage");
+refreshButton.addEventListener("click", refreshButtonFunc);
 
 // this grabs the second button the open word list button and opens a html on "click"
 const seeList = document.querySelector("#listPopup");
-seeList.addEventListener("click", () => {openPopup(sectionID)});
+seeList.addEventListener("click", () => openPopup());
 
-// adding the ID for the words being blocked list to use in the openPopup function below
-let sectionID = "wordList"
 
 
 // fuction that opens a popup of size 500/300 using the ID of the html element as an argument
-function openPopup(sectionId) {
-  // Get the section of HTML that you want to open as a popup.
-  let section = document.getElementById(sectionId);
+async function openPopup() {
 
-  // Create a new window with the specified attributes.
-  let popupWindow = window.open('', 'popup', 'width=500,height=300');
+  let list = await getWords();
 
-  // Insert the HTML section into the popup window.
-  popupWindow.document.body.innerHTML = section.innerHTML;
+  window.alert(list);
 }
 
-
+const removeButton = document.querySelector("#removeButton");
+removeButton.addEventListener("click", () => {removeWord(window.prompt("Enter word to remove"))});
 
 
