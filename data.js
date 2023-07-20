@@ -1,3 +1,5 @@
+checkStorage();
+
 // array that gonna be used to store the words
 var blockedWords = ["the", "cat"];
 
@@ -6,6 +8,19 @@ function saveWords(array){
     chrome.storage.local.set({ key1: array }).then(() => {
         console.log("Value is set");
     });
+}
+
+async function checkStorage (){
+
+let array = await getWords();
+
+if(array == undefined){
+
+let emptyArray = [];
+
+saveWords(emptyArray);
+
+}
 }
 
 async function getWords() {
@@ -34,13 +49,13 @@ async function addWord(word){
 async function removeWord(word){
     console.log("started removing");
     let currWords = await getWords();
-    
+
     let indexToRemove = currWords.indexOf(word);
 
     if (indexToRemove !== -1) {
         currWords.splice(indexToRemove, 1);
         console.log(currWords);
-        saveWords(currWords); 
+        saveWords(currWords);
     } else {
         window.alert("could not find word");
     }
