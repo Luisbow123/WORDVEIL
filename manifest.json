@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "WordVeil",
-    "version": "0.2",
+    "version": "1.0",
     "description": "Customizable word-blocking extension that blocks words tailored to your own user experience ",
 
     "permissions": [
@@ -11,11 +11,16 @@
         "scripting",
         "tabs"
     ],
+    "icons": {
+        "128" : "icon128.png",
+        "48" : "icon48.png",
+        "16" : "icon16.png"
+    },
 
     "action": {
       "default_popup": "popup.html",
-      "default_title": "TestRun",
-      "default_icon": "hiPNG.png"
+      "default_title": "WordVeil",
+      "default_icon": "icon128.png"
     },
 
     "content_scripts": [

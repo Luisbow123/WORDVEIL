@@ -1,19 +1,20 @@
-
-
+//Word that was inputted, if any:
+let currWord = "";
 
 const addButton = document.querySelector("#getButton");
 
-// word that was just inputed if any
-let currWord = "";
-
-// this is the function that defines what the EnterWord button does on "click"
+//EnterWord Button Does This on
 addButton.addEventListener("click", () => {
   currWord = window.prompt("Enter word to be blocked");
-  
+
+//Can add multiple words if separated by "," only, NO SPACES!!
+
   if(!currWord.includes(" ")){
+
     addWord(currWord);
+
   }else{
-    window.alert("Must no include spaces/ needs to be individual word");
+    window.alert("ERROR: Remove any spaces please!");
   }
 
   // let newWord = document.createElement("li");
