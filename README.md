@@ -1,6 +1,8 @@
 # WORDVEIL
 WordViel will have to be setup locally as publishing a extension to google play store that has permission to use user browser storage and scripting can take weeks or even months for the google store employees to review in case of malware.
 
+If reading this from text file and not seeing images check: https://github.com/Luisbow123/WORDVEIL
+
 HOW TO SETUP WordViel:
 
 1. Visit chrome://extensions in Chrome (or any Chromium browser)
