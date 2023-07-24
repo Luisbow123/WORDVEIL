@@ -11,7 +11,7 @@ printWords();
   // Get all text nodes on the webpage
   let allTextNodes = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
 
-  let replacementWord = "|@@@@@@|";
+  let replacementWord = "-------";
 
 async function wordViel(){
 
